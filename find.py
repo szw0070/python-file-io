@@ -82,11 +82,11 @@ def record_all_occurrences(in_stream, out_stream, target_regex, start_regex = No
     """
     num_occurrences = 0
     for line_index, match_obj in find_iter(in_stream, target_regex, start_regex, stop_regex):
-        num_occurences += 1
+        num_occurrences += 1
         for target_str in match_obj.groups():
             out_stream.write("{line_num}\t{string}\n".format(
                 line_num = line_index + 1, string = target_str))
-    return num_occurences
+    return num_occurrences
 
 if __name__ == '__main__':
     target_pattern = re.compile(r'(w*herit\w*)', re.IGNORECASE)
@@ -95,11 +95,11 @@ if __name__ == '__main__':
     in_path = "origin.txt"
     out_path = 'origin-inherit-occurrences.txt'
     with open(in_path, 'r') as in_stream:
-        with open(out_paht, 'w') as out_stream:
+        with open(out_path, 'w') as out_stream:
             num_occurrences = record_all_occurrences(in_stream = in_stream, out_stream = out_stream,
                     target_regex = target_pattern, start_regex = start_pattern,
                     stop_regex = stop_pattern)
-    message = 'heritability was reerred to {0} times.'.format(num_occurrences)
+    message = 'heritability was referred to {0} times.'.format(num_occurrences)
     print(message)
 
 
